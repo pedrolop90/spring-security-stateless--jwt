@@ -1,0 +1,6 @@
+server:
+  port: 8080
+jwt:
+  secretKey: "SjLNct19ONkWJIw4OW4EFz8V8KUNLiQ9CU_We2nUsLg"
+  prefix: Bearer
+  expiraInDays: 14

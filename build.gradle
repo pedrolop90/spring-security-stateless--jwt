@@ -1,0 +1,37 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.4.RELEASE'
+    id 'application'
+}
+
+project.ext.nameClass = 'com.SecurityApp'
+project.ext.nameDir = 'app'
+
+group = 'com.ejemplo.gradle.spring.security'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.4.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.3.4.RELEASE'
+
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.10.7'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.10.7'
+    implementation group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.10.7'
+}
+
+mainClassName = project.ext.nameClass
+
+sourceSets.main.java.srcDirs = [project.ext.nameDir]
+sourceSets.main.resources.srcDirs = [project.ext.nameDir + '/resource']
+
+test {
+    useJUnitPlatform()
+}
