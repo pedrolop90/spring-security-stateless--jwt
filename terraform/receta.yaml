@@ -1,0 +1,6 @@
+#cloud-config
+package_update: true
+packages:
+  - docker.io
+runcmd:
+  - docker run -p 8010:8010 --name test -d pedrolop90/biblioteca-prueba:latest

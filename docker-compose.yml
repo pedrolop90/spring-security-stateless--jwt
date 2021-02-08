@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  security-jwt:
+    build: ./
+    image: security-jwt:1.0
+    ports:
+      - 8080:8080

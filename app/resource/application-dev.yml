@@ -1,6 +1,6 @@
 server:
-  port: 8080
+  port: ${DEFAULT_PORT:8080}
 jwt:
-  secretKey: "SjLNct19ONkWJIw4OW4EFz8V8KUNLiQ9CU_We2nUsLg"
-  prefix: Bearer
-  expiraInDays: 14
+  secretKey: ${KEYSECRET_SECURITY:SjLNct19ONkWJIw4OW4EFz8V8KUNLiQ9CU_We2nUsLg}
+  prefix: ${PREFIX_SECURITY:Bearer}
+  expiraInDays: ${EXPIRA_DAYS_SECURITY:14}

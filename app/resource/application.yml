@@ -1,5 +1,5 @@
 spring:
   application:
-    name: security_testing
+    name: security_testing:1.0
   profiles:
     active: dev
