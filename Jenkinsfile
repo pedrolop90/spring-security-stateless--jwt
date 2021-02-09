@@ -142,17 +142,21 @@ pipeline {
     }
     stage('Plan Terraform'){
        steps {
-         container('terraform') {
-           sh '${env.VARIABLES_NAME_TERRAFORM} | base64 -d > terraform.tfvars'
-           sh 'terraform init'
-           sh 'terraform plan -out myplan'
+         dir("terraform") {
+             container('terraform') {
+                sh '${env.VARIABLES_NAME_TERRAFORM} | base64 -d > terraform.tfvars'
+                sh 'terraform init'
+                sh 'terraform plan -out myplan'
+              }
          }
        }
     }
      stage('Apply Terraform') {
       steps {
-        container('terraform') {
-          sh terraform apply -input=false -auto-approve'
+        dir("terraform") {
+            container('terraform') {
+              sh 'terraform apply -input=false -auto-approve'
+            }
         }
       }
     }
